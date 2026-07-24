@@ -418,7 +418,7 @@ export default function FlightVoter() {
                  </li>
                  <li><strong>DCA:</strong> 30-45 mins</li>
                  <li><strong>BWI:</strong> 45-60 mins</li>
-                 <li><strong>IAD:</strong> might be okay for return flight!</li>
+                 <li><strong>IAD:</strong> 60-90 mins. might be okay for return flight!</li>
              </ul>
          </div>
 
