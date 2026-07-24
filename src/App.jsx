@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { initializeApp } from "firebase/app";
 import { getFirestore, collection, addDoc, onSnapshot, query, orderBy, deleteDoc, getDocs } from "firebase/firestore";
 
@@ -195,6 +195,49 @@ const returnFlights = [
   }
 ];
 
+function ScrollableFlightList({ children }) {
+  const containerRef = useRef(null);
+  const thumbRef = useRef(null);
+
+  const updateThumb = () => {
+    const el = containerRef.current;
+    const thumb = thumbRef.current;
+    if (!el || !thumb) return;
+    const { scrollTop, scrollHeight, clientHeight } = el;
+    if (scrollHeight <= clientHeight) {
+      thumb.style.opacity = "0";
+      return;
+    }
+    thumb.style.opacity = "1";
+    const thumbHeight = Math.max((clientHeight / scrollHeight) * clientHeight, 28);
+    const maxThumbTop = clientHeight - thumbHeight;
+    const scrollRatio = scrollTop / (scrollHeight - clientHeight);
+    thumb.style.height = `${thumbHeight}px`;
+    thumb.style.transform = `translateY(${scrollRatio * maxThumbTop}px)`;
+  };
+
+  useEffect(() => {
+    updateThumb();
+    window.addEventListener('resize', updateThumb);
+    return () => window.removeEventListener('resize', updateThumb);
+  }, []);
+
+  return (
+    <div className="relative h-[380px]">
+      <div
+        ref={containerRef}
+        onScroll={updateThumb}
+        className="no-native-scrollbar h-full overflow-y-scroll pr-3 space-y-2"
+      >
+        {children}
+      </div>
+      <div className="absolute top-0 right-0 w-1.5 h-full rounded-full bg-[#f0dde4] pointer-events-none">
+        <div ref={thumbRef} className="w-1.5 rounded-full bg-[#8E5A71] absolute top-0 right-0" />
+      </div>
+    </div>
+  );
+}
+
 function FlightCard({ flight, selected, onSelect }) {
   return (
     <div
@@ -346,12 +389,12 @@ export default function FlightVoter() {
   }
 
   return (
-    <div className="min-h-screen bg-[#faf8ed] p-4 md:p-8 font-['Nunito',sans-serif] text-[#5A3A4A]">
+    <div className="min-h-screen bg-[#faf8ed] p-[11px] md:p-[22px] font-['Nunito',sans-serif] text-[#5A3A4A]">
       <style dangerouslySetInnerHTML={{__html: `
         @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap');
       `}} />
 
-      <div className="max-w-4xl mx-auto rounded-3xl p-6 md:p-10 bg-[#faf8ed] relative">
+      <div className="max-w-4xl mx-auto rounded-3xl p-[17px] md:p-[28px] bg-[#faf8ed] relative">
         <div className="absolute top-4 left-4 text-[#8E5A71] text-2xl rotate-12">✧</div>
         <div className="absolute top-4 right-4 text-[#8E5A71] text-2xl -rotate-12">✧</div>
         <div className="absolute bottom-4 left-4 text-[#8E5A71] text-2xl -rotate-45">✧</div>
@@ -383,10 +426,10 @@ export default function FlightVoter() {
 
           <div className="space-y-6">
             <div>
-              <h2 className="text-xl font-black text-[#8E5A71] mb-4 border-b-2 border-solid border-[#8E5A71] pb-2 uppercase">
+              <h2 className="text-xl font-black text-[#8E5A71] mb-4 uppercase">
                   Departing Flights
               </h2>
-              <div className="h-[380px] overflow-y-scroll pr-3 space-y-2 flight-scroll">
+              <ScrollableFlightList>
                   {departureFlights.map((flight) => (
                     <FlightCard
                       key={flight.id}
@@ -395,14 +438,14 @@ export default function FlightVoter() {
                       onSelect={() => setSelectedDeparture(flight.id)}
                     />
                   ))}
-              </div>
+              </ScrollableFlightList>
             </div>
 
             <div>
-              <h2 className="text-xl font-black text-[#8E5A71] mb-4 border-b-2 border-solid border-[#8E5A71] pb-2 uppercase">
+              <h2 className="text-xl font-black text-[#8E5A71] mb-4 uppercase">
                   Returning Flights
               </h2>
-              <div className="h-[380px] overflow-y-scroll pr-3 space-y-2 flight-scroll">
+              <ScrollableFlightList>
                   {returnFlights.map((flight) => (
                     <FlightCard
                       key={flight.id}
@@ -411,7 +454,7 @@ export default function FlightVoter() {
                       onSelect={() => setSelectedReturn(flight.id)}
                     />
                   ))}
-              </div>
+              </ScrollableFlightList>
             </div>
           </div>
 
