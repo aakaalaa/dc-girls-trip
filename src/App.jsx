@@ -21,8 +21,8 @@ const departureFlights = [
   {
     id: "d1",
     airline: "United",
-    departure: "SFO 12:45 AM",
-    arrival: "BWI 11:45 AM",
+    departure: "SFO 12:45AM",
+    arrival: "BWI 11:45AM",
     stops: "1 stop (IAH)",
     price: 164,
     duration: "8 hr"
@@ -30,8 +30,8 @@ const departureFlights = [
   {
     id: "d2",
     airline: "American",
-    departure: "SFO 5:05 AM",
-    arrival: "DCA 3:58 PM",
+    departure: "SFO 5:05AM",
+    arrival: "DCA 3:58PM",
     stops: "1 stop (1 hr 14 min CLT)",
     price: 196,
     duration: "7 hr 53 min"
@@ -39,8 +39,8 @@ const departureFlights = [
   {
     id: "d3",
     airline: "American",
-    departure: "SFO 5:05 AM",
-    arrival: "IAD 5:04 PM",
+    departure: "SFO 5:05AM",
+    arrival: "IAD 5:04PM",
     stops: "1 stop (2 hr 14 min CLT)",
     price: 196,
     duration: "8 hr 59 min"
@@ -48,8 +48,8 @@ const departureFlights = [
   {
     id: "d4",
     airline: "American",
-    departure: "SFO 6:05 AM",
-    arrival: "DCA 4:48 PM",
+    departure: "SFO 6:05AM",
+    arrival: "DCA 4:48PM",
     stops: "1 stop (47 min PHL)",
     price: 196,
     duration: "7 hr 43 min"
@@ -57,8 +57,8 @@ const departureFlights = [
   {
     id: "d5",
     airline: "United",
-    departure: "SFO 9:10 AM",
-    arrival: "BWI 5:40 PM",
+    departure: "SFO 9:10AM",
+    arrival: "BWI 5:40PM",
     stops: "Nonstop",
     price: 227,
     duration: "5 hr 30 min"
@@ -66,8 +66,8 @@ const departureFlights = [
   {
     id: "d6",
     airline: "Alaska",
-    departure: "SFO 7:08 AM",
-    arrival: "IAD 6:14 PM",
+    departure: "SFO 7:08AM",
+    arrival: "IAD 6:14PM",
     stops: "1 stop (1 hr 16 min SAN)",
     price: 229,
     duration: "8 hr 6 min"
@@ -75,8 +75,8 @@ const departureFlights = [
   {
     id: "d7",
     airline: "Alaska",
-    departure: "SFO 9:39 AM",
-    arrival: "DCA 5:59 PM",
+    departure: "SFO 9:39AM",
+    arrival: "DCA 5:59PM",
     stops: "Nonstop",
     price: 239,
     duration: "5 hr 20 min"
@@ -84,8 +84,8 @@ const departureFlights = [
   {
     id: "d8",
     airline: "Southwest",
-    departure: "SFO 5:10 AM",
-    arrival: "DCA 4:40 PM",
+    departure: "SFO 5:10AM",
+    arrival: "DCA 4:40PM",
     stops: "1 stop (2 hr 20 min LAS)",
     price: 248,
     duration: "8 hr 30 min"
@@ -93,8 +93,8 @@ const departureFlights = [
   {
     id: "d9",
     airline: "American",
-    departure: "SFO 5:30 AM",
-    arrival: "DCA 3:59 PM",
+    departure: "SFO 5:30AM",
+    arrival: "DCA 3:59PM",
     stops: "1 stop (45 min DFW)",
     price: 289,
     duration: "7 hr 29 min"
@@ -102,8 +102,8 @@ const departureFlights = [
   {
     id: "d10",
     airline: "Southwest",
-    departure: "SFO 6:20 AM",
-    arrival: "BWI 4:30 PM",
+    departure: "SFO 6:20AM",
+    arrival: "BWI 4:30PM",
     stops: "1 stop (1 hr 15 min DEN)",
     price: 292,
     duration: "7 hr 10 min"
@@ -115,8 +115,8 @@ const returnFlights = [
   {
     id: "r1",
     airline: "JetBlue",
-    departure: "DCA 3:20 PM",
-    arrival: "SFO 11:51 PM",
+    departure: "DCA 3:20PM",
+    arrival: "SFO 11:51PM",
     stops: "1 stop (2 hr 53 min FLL)",
     price: 265,
     duration: "11 hr 31 min"
@@ -124,8 +124,8 @@ const returnFlights = [
   {
     id: "r2",
     airline: "United",
-    departure: "BWI 6:52 PM",
-    arrival: "SFO 9:43 PM",
+    departure: "BWI 6:52PM",
+    arrival: "SFO 9:43PM",
     stops: "Nonstop",
     price: 269,
     duration: "5 hr 51 min"
@@ -133,8 +133,8 @@ const returnFlights = [
   {
     id: "r3",
     airline: "United",
-    departure: "IAD 5:48 PM",
-    arrival: "SFO 8:30 PM",
+    departure: "IAD 5:48PM",
+    arrival: "SFO 8:30PM",
     stops: "Nonstop",
     price: 275,
     duration: "5 hr 42 min"
@@ -142,8 +142,8 @@ const returnFlights = [
   {
     id: "r4",
     airline: "United",
-    departure: "IAD 6:35 PM",
-    arrival: "SFO 9:28 PM",
+    departure: "IAD 6:35PM",
+    arrival: "SFO 9:28PM",
     stops: "Nonstop",
     price: 275,
     duration: "5 hr 53 min"
@@ -151,8 +151,8 @@ const returnFlights = [
   {
     id: "r5",
     airline: "United",
-    departure: "IAD 12:40 PM",
-    arrival: "SFO 3:28 PM",
+    departure: "IAD 12:40PM",
+    arrival: "SFO 3:28PM",
     stops: "Nonstop",
     price: 306,
     duration: "5 hr 48 min"
@@ -160,8 +160,8 @@ const returnFlights = [
   {
     id: "r6",
     airline: "Southwest",
-    departure: "BWI 2:00 PM",
-    arrival: "SFO 6:30 PM",
+    departure: "BWI 2:00PM",
+    arrival: "SFO 6:30PM",
     stops: "1 stop (40 min SAN)",
     price: 309,
     duration: "7 hr 30 min"
@@ -169,8 +169,8 @@ const returnFlights = [
   {
     id: "r7",
     airline: "United",
-    departure: "IAD 2:47 PM",
-    arrival: "SFO 5:35 PM",
+    departure: "IAD 2:47PM",
+    arrival: "SFO 5:35PM",
     stops: "Nonstop",
     price: 309,
     duration: "5 hr 48 min"
@@ -178,8 +178,8 @@ const returnFlights = [
   {
     id: "r8",
     airline: "United",
-    departure: "DCA 5:45 PM",
-    arrival: "SFO 8:42 PM",
+    departure: "DCA 5:45PM",
+    arrival: "SFO 8:42PM",
     stops: "Nonstop",
     price: 319,
     duration: "5 hr 57 min"
@@ -187,8 +187,8 @@ const returnFlights = [
   {
     id: "r9",
     airline: "Alaska",
-    departure: "DCA 6:59 PM",
-    arrival: "SFO 9:54 PM",
+    departure: "DCA 6:59PM",
+    arrival: "SFO 9:54PM",
     stops: "Nonstop",
     price: 344,
     duration: "5 hr 55 min"
@@ -198,22 +198,22 @@ const returnFlights = [
 function FlightCard({ flight, selected, onSelect }) {
   return (
     <div
-      className={`flex items-center gap-3 px-3 py-2 border-2 rounded-xl cursor-pointer transition-all ${selected ? 'border-[#8E5A71] bg-[#D4B5C1]' : 'border-[#8E5A71] bg-transparent hover:bg-[#D4B5C1]/50'}`}
+      className={`flex items-center gap-2 px-2.5 py-2 border-2 rounded-xl cursor-pointer transition-all ${selected ? 'border-[#8E5A71] bg-[#D4B5C1]' : 'border-[#8E5A71] bg-transparent hover:bg-[#D4B5C1]/50'}`}
       onClick={onSelect}
     >
       <div className="flex-1 min-w-0">
         <div className="font-black text-sm text-[#5A3A4A] truncate">{flight.airline}</div>
-        <div className="flex items-center gap-1 text-xs font-bold truncate">
-          <span>{flight.departure}</span>
-          <span className="text-[#8E5A71]">→</span>
-          <span>{flight.arrival}</span>
+        <div className="text-[11px] font-bold leading-snug">
+          {flight.departure} <span className="text-[#8E5A71]">→</span> {flight.arrival}
         </div>
       </div>
-      <div className="flex flex-col items-end text-[10px] font-bold text-[#8E5A71] shrink-0 leading-tight">
-        <span>{flight.stops}</span>
-        <span>⏱ {flight.duration}</span>
+      <div className="flex items-center gap-1 shrink-0">
+        <div className="flex flex-col items-end text-right text-[9px] font-bold text-[#8E5A71] leading-tight w-[68px]">
+          <span>{flight.stops}</span>
+          <span>⏱ {flight.duration}</span>
+        </div>
+        <div className="text-base font-black text-[#8E5A71] w-12 text-right">${flight.price}</div>
       </div>
-      <div className="text-lg font-black text-[#8E5A71] shrink-0 w-16 text-right">${flight.price}</div>
     </div>
   );
 }
