@@ -369,7 +369,7 @@ export default function FlightVoter() {
                  <li>
                    These are the cheapest flights that{" "}
                    <span className="bg-[#D4B5C1] text-[#5A3A4A] px-2 py-0.5 rounded-md font-bold inline-block">
-                     Arrive and depart DC between 11 am - 7 pm
+                     arrive and depart DC between 11AM - 7PM
                    </span>
                    .
                  </li>
