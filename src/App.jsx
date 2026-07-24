@@ -412,9 +412,8 @@ export default function FlightVoter() {
                  <li>
                    These are the cheapest flights that{" "}
                    <span className="bg-[#D4B5C1] text-[#5A3A4A] px-2 py-0.5 rounded-md font-bold inline-block">
-                     arrive and depart DC between 11AM - 7PM
+                     arrive & depart DC between 11AM - 7PM
                    </span>
-                   .
                  </li>
                  <li><strong>DCA:</strong> 30-45 mins</li>
                  <li><strong>BWI:</strong> 45-60 mins</li>
