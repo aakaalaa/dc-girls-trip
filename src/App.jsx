@@ -25,8 +25,7 @@ const departureFlights = [
     arrival: "DCA 3:58 PM",
     stops: "1 stop (CLT)",
     price: 196,
-    duration: "7 hr 53 min",
-    co2: "398 kg"
+    duration: "7 hr 53 min"
   },
   {
     id: "d2",
@@ -35,8 +34,7 @@ const departureFlights = [
     arrival: "DCA 4:48 PM",
     stops: "1 stop (PHL)",
     price: 196,
-    duration: "7 hr 43 min",
-    co2: "344 kg"
+    duration: "7 hr 43 min"
   },
   {
     id: "d3",
@@ -45,8 +43,7 @@ const departureFlights = [
     arrival: "BWI 5:05 PM",
     stops: "2 stops",
     price: 220,
-    duration: "8 hr 55 min",
-    co2: "395 kg"
+    duration: "8 hr 55 min"
   },
   {
     id: "d4",
@@ -55,8 +52,7 @@ const departureFlights = [
     arrival: "BWI 5:40 PM",
     stops: "Nonstop",
     price: 227,
-    duration: "5 hr 30 min",
-    co2: "268 kg"
+    duration: "5 hr 30 min"
   },
   {
     id: "d5",
@@ -65,8 +61,7 @@ const departureFlights = [
     arrival: "DCA 4:40 PM",
     stops: "1 stop (LAS)",
     price: 248,
-    duration: "8 hr 30 min",
-    co2: "353 kg"
+    duration: "8 hr 30 min"
   },
   {
     id: "d6",
@@ -75,8 +70,7 @@ const departureFlights = [
     arrival: "BWI 4:30 PM",
     stops: "1 stop (DEN)",
     price: 292,
-    duration: "7 hr 10 min",
-    co2: "319 kg"
+    duration: "7 hr 10 min"
   },
   {
     id: "d7",
@@ -85,8 +79,7 @@ const departureFlights = [
     arrival: "SFO 3:28 PM",
     stops: "Nonstop",
     price: 306,
-    duration: "5 hr 48 min",
-    co2: "326 kg"
+    duration: "5 hr 48 min"
   }
 ];
 
@@ -99,8 +92,7 @@ const returnFlights = [
     arrival: "SFO 11:51 PM",
     stops: "1 stop (2 hr 53 min FLL)",
     price: 265,
-    duration: "11 hr 31 min",
-    co2: "598 kg"
+    duration: "11 hr 31 min"
   },
   {
     id: "r2",
@@ -109,8 +101,7 @@ const returnFlights = [
     arrival: "SFO 9:43 PM",
     stops: "Nonstop",
     price: 269,
-    duration: "5 hr 51 min",
-    co2: "279 kg"
+    duration: "5 hr 51 min"
   },
   {
     id: "r3",
@@ -119,8 +110,7 @@ const returnFlights = [
     arrival: "SFO 8:30 PM",
     stops: "Nonstop",
     price: 275,
-    duration: "5 hr 42 min",
-    co2: "232 kg"
+    duration: "5 hr 42 min"
   },
   {
     id: "r4",
@@ -129,58 +119,52 @@ const returnFlights = [
     arrival: "SFO 9:28 PM",
     stops: "Nonstop",
     price: 275,
-    duration: "5 hr 53 min",
-    co2: "272 kg"
+    duration: "5 hr 53 min"
   },
   {
     id: "r5",
-    airline: "Alaska",
-    departure: "BWI 4:43 PM",
-    arrival: "SFO 9:07 AM (+1)",
-    stops: "1 stop (11 hr 48 min PDX)",
-    price: 282,
-    duration: "19 hr 24 min",
-    co2: "416 kg"
-  },
-  {
-    id: "r6",
     airline: "United",
     departure: "IAD 12:40 PM",
     arrival: "SFO 3:28 PM",
     stops: "Nonstop",
     price: 306,
-    duration: "5 hr 48 min",
-    co2: "326 kg"
+    duration: "5 hr 48 min"
   },
   {
-    id: "r7",
+    id: "r6",
     airline: "Southwest",
     departure: "BWI 2:00 PM",
     arrival: "SFO 6:30 PM",
     stops: "1 stop (40 min SAN)",
     price: 309,
-    duration: "7 hr 30 min",
-    co2: "383 kg"
+    duration: "7 hr 30 min"
   },
   {
-    id: "r8",
+    id: "r7",
     airline: "United",
     departure: "IAD 2:47 PM",
     arrival: "SFO 5:35 PM",
     stops: "Nonstop",
     price: 309,
-    duration: "5 hr 48 min",
-    co2: "326 kg"
+    duration: "5 hr 48 min"
   },
   {
-    id: "r9",
+    id: "r8",
     airline: "United",
     departure: "DCA 5:45 PM",
     arrival: "SFO 8:42 PM",
     stops: "Nonstop",
     price: 319,
-    duration: "5 hr 57 min",
-    co2: "276 kg"
+    duration: "5 hr 57 min"
+  },
+  {
+    id: "r9",
+    airline: "Alaska",
+    departure: "DCA 6:59 PM",
+    arrival: "SFO 9:54 PM",
+    stops: "Nonstop",
+    price: 344,
+    duration: "5 hr 55 min"
   }
 ];
 
@@ -191,10 +175,7 @@ function FlightCard({ flight, selected, onSelect }) {
       onClick={onSelect}
     >
       <div className="flex-1 min-w-0">
-        <div className="flex items-baseline gap-2">
-          <span className="font-black text-sm text-[#5A3A4A] truncate">{flight.airline}</span>
-          <span className="text-[10px] font-bold text-[#8E5A71] truncate">{flight.stops}</span>
-        </div>
+        <div className="font-black text-sm text-[#5A3A4A] truncate">{flight.airline}</div>
         <div className="flex items-center gap-1 text-xs font-bold truncate">
           <span>{flight.departure}</span>
           <span className="text-[#8E5A71]">→</span>
@@ -202,8 +183,8 @@ function FlightCard({ flight, selected, onSelect }) {
         </div>
       </div>
       <div className="flex flex-col items-end text-[10px] font-bold text-[#8E5A71] shrink-0 leading-tight">
+        <span>{flight.stops}</span>
         <span>⏱ {flight.duration}</span>
-        <span>🌱 {flight.co2}</span>
       </div>
       <div className="text-lg font-black text-[#8E5A71] shrink-0 w-16 text-right">${flight.price}</div>
     </div>
