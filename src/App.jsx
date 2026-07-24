@@ -420,14 +420,14 @@ export default function FlightVoter() {
                             <div>
                                 <label className="block text-sm font-black text-[#8E5A71] mb-1 uppercase tracking-wider">Departing Flight</label>
                                 <div className="w-full px-4 py-2 border-2 border-[#8E5A71] rounded-xl bg-transparent font-bold">
-                                    {selectedDepartureFlight ? `${selectedDepartureFlight.airline} - $${selectedDepartureFlight.price}` : "Tap an option above..."}
+                                    {selectedDepartureFlight ? `${selectedDepartureFlight.airline} - $${selectedDepartureFlight.price}` : "tap an option"}
                                 </div>
                             </div>
 
                             <div>
                                 <label className="block text-sm font-black text-[#8E5A71] mb-1 uppercase tracking-wider">Returning Flight</label>
                                 <div className="w-full px-4 py-2 border-2 border-[#8E5A71] rounded-xl bg-transparent font-bold">
-                                    {selectedReturnFlight ? `${selectedReturnFlight.airline} - $${selectedReturnFlight.price}` : "Tap an option above..."}
+                                    {selectedReturnFlight ? `${selectedReturnFlight.airline} - $${selectedReturnFlight.price}` : "tap an option"}
                                 </div>
                             </div>
 
