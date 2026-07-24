@@ -20,33 +20,42 @@ const db = getFirestore(app);
 const departureFlights = [
   {
     id: "d1",
-    airline: "American",
-    departure: "SFO 5:05 AM",
-    arrival: "DCA 3:58 PM",
-    stops: "1 stop (CLT)",
-    price: 196,
-    duration: "7 hr 53 min"
+    airline: "United",
+    departure: "SFO 12:45 AM",
+    arrival: "BWI 11:45 AM",
+    stops: "1 stop (IAH)",
+    price: 164,
+    duration: "8 hr"
   },
   {
     id: "d2",
     airline: "American",
+    departure: "SFO 5:05 AM",
+    arrival: "DCA 3:58 PM",
+    stops: "1 stop (1 hr 14 min CLT)",
+    price: 196,
+    duration: "7 hr 53 min"
+  },
+  {
+    id: "d3",
+    airline: "American",
+    departure: "SFO 5:05 AM",
+    arrival: "IAD 5:04 PM",
+    stops: "1 stop (2 hr 14 min CLT)",
+    price: 196,
+    duration: "8 hr 59 min"
+  },
+  {
+    id: "d4",
+    airline: "American",
     departure: "SFO 6:05 AM",
     arrival: "DCA 4:48 PM",
-    stops: "1 stop (PHL)",
+    stops: "1 stop (47 min PHL)",
     price: 196,
     duration: "7 hr 43 min"
   },
   {
-    id: "d3",
-    airline: "Southwest",
-    departure: "SFO 5:10 AM",
-    arrival: "BWI 5:05 PM",
-    stops: "2 stops",
-    price: 220,
-    duration: "8 hr 55 min"
-  },
-  {
-    id: "d4",
+    id: "d5",
     airline: "United",
     departure: "SFO 9:10 AM",
     arrival: "BWI 5:40 PM",
@@ -55,31 +64,49 @@ const departureFlights = [
     duration: "5 hr 30 min"
   },
   {
-    id: "d5",
+    id: "d6",
+    airline: "Alaska",
+    departure: "SFO 7:08 AM",
+    arrival: "IAD 6:14 PM",
+    stops: "1 stop (1 hr 16 min SAN)",
+    price: 229,
+    duration: "8 hr 6 min"
+  },
+  {
+    id: "d7",
+    airline: "Alaska",
+    departure: "SFO 9:39 AM",
+    arrival: "DCA 5:59 PM",
+    stops: "Nonstop",
+    price: 239,
+    duration: "5 hr 20 min"
+  },
+  {
+    id: "d8",
     airline: "Southwest",
     departure: "SFO 5:10 AM",
     arrival: "DCA 4:40 PM",
-    stops: "1 stop (LAS)",
+    stops: "1 stop (2 hr 20 min LAS)",
     price: 248,
     duration: "8 hr 30 min"
   },
   {
-    id: "d6",
+    id: "d9",
+    airline: "American",
+    departure: "SFO 5:30 AM",
+    arrival: "DCA 3:59 PM",
+    stops: "1 stop (45 min DFW)",
+    price: 289,
+    duration: "7 hr 29 min"
+  },
+  {
+    id: "d10",
     airline: "Southwest",
     departure: "SFO 6:20 AM",
     arrival: "BWI 4:30 PM",
-    stops: "1 stop (DEN)",
+    stops: "1 stop (1 hr 15 min DEN)",
     price: 292,
     duration: "7 hr 10 min"
-  },
-  {
-    id: "d7",
-    airline: "United",
-    departure: "IAD 12:40 PM",
-    arrival: "SFO 3:28 PM",
-    stops: "Nonstop",
-    price: 306,
-    duration: "5 hr 48 min"
   }
 ];
 
@@ -342,11 +369,7 @@ export default function FlightVoter() {
                  <li>
                    These are the cheapest flights that{" "}
                    <span className="bg-[#D4B5C1] text-[#5A3A4A] px-2 py-0.5 rounded-md font-bold inline-block">
-                     Arrive in DC 11am-6pm
-                   </span>{" "}
-                   and{" "}
-                   <span className="bg-[#D4B5C1] text-[#5A3A4A] px-2 py-0.5 rounded-md font-bold inline-block">
-                     Depart 11am-7pm
+                     Arrive and depart DC between 11 am - 7 pm
                    </span>
                    .
                  </li>
