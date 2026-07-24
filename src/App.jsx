@@ -411,13 +411,14 @@ export default function FlightVoter() {
              <ul className="list-disc pl-5 space-y-1.5 font-semibold">
                  <li>
                    These are the cheapest flights that{" "}
-                   <span className="bg-[#D4B5C1] text-[#5A3A4A] px-2 py-0.5 rounded-md font-bold inline-block">
+                   <span className="bg-[#D4B5C1] text-[#5A3A4A] px-0.5 py-0.5 rounded-md font-bold inline-block">
                      arrive & depart DC between 11AM - 7PM
                    </span>
                  </li>
                  <li><strong>DCA:</strong> 30-45 mins</li>
                  <li><strong>BWI:</strong> 45-60 mins</li>
                  <li><strong>IAD:</strong> 60-90 mins. might be okay for return flight!</li>
+                 <li><strong>Airbnb</strong> check-in is at 11AM; check-out is at 3PM</li>
              </ul>
          </div>
 
@@ -507,6 +508,10 @@ export default function FlightVoter() {
                                 />
                             </div>
 
+                            <div className="text-center text-sm font-black text-[#8E5A71] uppercase tracking-widest mb-3">
+                                Votes are final
+                            </div>
+
                             <button
                                 type="submit"
                                 disabled={!selectedDeparture || !selectedReturn || !voterName || !defenseNote}
@@ -548,14 +553,6 @@ export default function FlightVoter() {
                             </div>
                         )}
 
-                        <div className="mt-8 text-center">
-                            <button
-                                onClick={() => setShowResults(false)}
-                                className="text-sm font-black text-[#8E5A71] hover:text-[#5A3A4A] underline uppercase tracking-widest"
-                            >
-                                Back
-                            </button>
-                        </div>
                     </div>
                 )}
             </div>
