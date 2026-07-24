@@ -17,90 +17,238 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 // --- Flight data extracted from screenshots ---
-const flights = [
+const departureFlights = [
   {
-    id: "f1",
+    id: "d1",
     airline: "American",
     departure: "SFO 5:05 AM",
     arrival: "DCA 3:58 PM",
     stops: "1 stop (CLT)",
     price: 196,
     duration: "7 hr 53 min",
-    co2: "398 kg",
-    airportInfo: "DCA is ~17 miles (30-45 mins) from the airbnb."
+    co2: "398 kg"
   },
   {
-    id: "f2",
+    id: "d2",
     airline: "American",
     departure: "SFO 6:05 AM",
     arrival: "DCA 4:48 PM",
     stops: "1 stop (PHL)",
     price: 196,
     duration: "7 hr 43 min",
-    co2: "344 kg",
-    airportInfo: "DCA is ~17 miles (30-45 mins) from the airbnb."
+    co2: "344 kg"
   },
   {
-    id: "f3",
+    id: "d3",
     airline: "Southwest",
     departure: "SFO 5:10 AM",
     arrival: "BWI 5:05 PM",
     stops: "2 stops",
     price: 220,
     duration: "8 hr 55 min",
-    co2: "395 kg",
-    airportInfo: "BWI is ~30 miles (45-60 mins) from the airbnb."
+    co2: "395 kg"
   },
   {
-    id: "f4",
+    id: "d4",
     airline: "United",
     departure: "SFO 9:10 AM",
     arrival: "BWI 5:40 PM",
     stops: "Nonstop",
     price: 227,
     duration: "5 hr 30 min",
-    co2: "268 kg",
-    airportInfo: "BWI is ~30 miles (45-60 mins) from the airbnb."
+    co2: "268 kg"
   },
   {
-    id: "f5",
+    id: "d5",
     airline: "Southwest",
     departure: "SFO 5:10 AM",
     arrival: "DCA 4:40 PM",
     stops: "1 stop (LAS)",
     price: 248,
     duration: "8 hr 30 min",
-    co2: "353 kg",
-    airportInfo: "DCA is ~17 miles (30-45 mins) from the airbnb."
+    co2: "353 kg"
   },
   {
-    id: "f6",
+    id: "d6",
     airline: "Southwest",
     departure: "SFO 6:20 AM",
     arrival: "BWI 4:30 PM",
     stops: "1 stop (DEN)",
     price: 292,
     duration: "7 hr 10 min",
-    co2: "319 kg",
-    airportInfo: "BWI is ~30 miles (45-60 mins) from the airbnb."
+    co2: "319 kg"
   },
   {
-     id: "f7",
-     airline: "United",
-     departure: "IAD 12:40 PM",
-     arrival: "SFO 3:28 PM",
-     stops: "Nonstop",
-     price: 306,
-     duration: "5 hr 48 min",
-     co2: "326 kg",
-     airportInfo: "IAD is ~45 miles (60-90+ mins) from the airbnb."
+    id: "d7",
+    airline: "United",
+    departure: "IAD 12:40 PM",
+    arrival: "SFO 3:28 PM",
+    stops: "Nonstop",
+    price: 306,
+    duration: "5 hr 48 min",
+    co2: "326 kg"
   }
 ];
+
+// --- Return flight data extracted from screenshots ---
+const returnFlights = [
+  {
+    id: "r1",
+    airline: "JetBlue",
+    departure: "DCA 3:20 PM",
+    arrival: "SFO 11:51 PM",
+    stops: "1 stop (2 hr 53 min FLL)",
+    price: 265,
+    duration: "11 hr 31 min",
+    co2: "598 kg"
+  },
+  {
+    id: "r2",
+    airline: "United",
+    departure: "BWI 6:52 PM",
+    arrival: "SFO 9:43 PM",
+    stops: "Nonstop",
+    price: 269,
+    duration: "5 hr 51 min",
+    co2: "279 kg"
+  },
+  {
+    id: "r3",
+    airline: "United",
+    departure: "IAD 5:48 PM",
+    arrival: "SFO 8:30 PM",
+    stops: "Nonstop",
+    price: 275,
+    duration: "5 hr 42 min",
+    co2: "232 kg"
+  },
+  {
+    id: "r4",
+    airline: "United",
+    departure: "IAD 6:35 PM",
+    arrival: "SFO 9:28 PM",
+    stops: "Nonstop",
+    price: 275,
+    duration: "5 hr 53 min",
+    co2: "272 kg"
+  },
+  {
+    id: "r5",
+    airline: "Alaska",
+    departure: "BWI 4:43 PM",
+    arrival: "SFO 9:07 AM (+1)",
+    stops: "1 stop (11 hr 48 min PDX)",
+    price: 282,
+    duration: "19 hr 24 min",
+    co2: "416 kg"
+  },
+  {
+    id: "r6",
+    airline: "United",
+    departure: "IAD 12:40 PM",
+    arrival: "SFO 3:28 PM",
+    stops: "Nonstop",
+    price: 306,
+    duration: "5 hr 48 min",
+    co2: "326 kg"
+  },
+  {
+    id: "r7",
+    airline: "Southwest",
+    departure: "BWI 2:00 PM",
+    arrival: "SFO 6:30 PM",
+    stops: "1 stop (40 min SAN)",
+    price: 309,
+    duration: "7 hr 30 min",
+    co2: "383 kg"
+  },
+  {
+    id: "r8",
+    airline: "United",
+    departure: "IAD 2:47 PM",
+    arrival: "SFO 5:35 PM",
+    stops: "Nonstop",
+    price: 309,
+    duration: "5 hr 48 min",
+    co2: "326 kg"
+  },
+  {
+    id: "r9",
+    airline: "United",
+    departure: "DCA 5:45 PM",
+    arrival: "SFO 8:42 PM",
+    stops: "Nonstop",
+    price: 319,
+    duration: "5 hr 57 min",
+    co2: "276 kg"
+  }
+];
+
+function FlightCard({ flight, selected, onSelect }) {
+  return (
+    <div
+      className={`flex items-center gap-3 px-3 py-2 border-2 rounded-xl cursor-pointer transition-all ${selected ? 'border-[#8E5A71] bg-[#D4B5C1]' : 'border-[#8E5A71] bg-transparent hover:bg-[#D4B5C1]/50'}`}
+      onClick={onSelect}
+    >
+      <div className="flex-1 min-w-0">
+        <div className="flex items-baseline gap-2">
+          <span className="font-black text-sm text-[#5A3A4A] truncate">{flight.airline}</span>
+          <span className="text-[10px] font-bold text-[#8E5A71] truncate">{flight.stops}</span>
+        </div>
+        <div className="flex items-center gap-1 text-xs font-bold truncate">
+          <span>{flight.departure}</span>
+          <span className="text-[#8E5A71]">→</span>
+          <span>{flight.arrival}</span>
+        </div>
+      </div>
+      <div className="flex flex-col items-end text-[10px] font-bold text-[#8E5A71] shrink-0 leading-tight">
+        <span>⏱ {flight.duration}</span>
+        <span>🌱 {flight.co2}</span>
+      </div>
+      <div className="text-lg font-black text-[#8E5A71] shrink-0 w-16 text-right">${flight.price}</div>
+    </div>
+  );
+}
+
+function ResultsSection({ title, results }) {
+  return (
+    <div>
+      <h3 className="font-black text-sm text-[#8E5A71] uppercase tracking-widest mb-3">{title}</h3>
+      {results.length === 0 ? (
+        <div className="text-center text-[#8E5A71] font-bold py-4 text-sm">No votes yet.</div>
+      ) : (
+        <div className="space-y-4">
+          {results.map((result, index) => (
+            <div key={result.id} className={`p-3 border-2 rounded-2xl border-[#8E5A71] ${index === 0 ? 'bg-[#D4B5C1]' : 'bg-transparent'}`}>
+              <div className="flex justify-between items-center mb-2">
+                <div className="font-black text-base text-[#5A3A4A]">
+                  {index === 0 && "★ "}{result.airline} (${result.price})
+                </div>
+                <div className="border-2 border-[#8E5A71] rounded-full px-2 py-0.5 text-sm font-black text-[#8E5A71] bg-transparent">
+                  {result.votes.length}
+                </div>
+              </div>
+              <div className="space-y-1.5 mt-2 border-t-2 border-solid border-[#8E5A71] pt-2">
+                {result.votes.map((v, i) => (
+                  <div key={i} className="text-sm font-bold">
+                    <span className="text-[#8E5A71] uppercase tracking-wider">{v.name}:</span>{" "}
+                    <span className="text-[#5A3A4A]">"{v.note}"</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
 
 export default function FlightVoter() {
   const [votes, setVotes] = useState([]);
   const [voterName, setVoterName] = useState("");
-  const [selectedFlight, setSelectedFlight] = useState("");
+  const [selectedDeparture, setSelectedDeparture] = useState("");
+  const [selectedReturn, setSelectedReturn] = useState("");
   const [defenseNote, setDefenseNote] = useState("");
   const [showResults, setShowResults] = useState(false);
   const [loading, setLoading] = useState(true);
@@ -123,7 +271,7 @@ export default function FlightVoter() {
 
   const submitVote = async (e) => {
     e.preventDefault();
-    if (!voterName || !selectedFlight || !defenseNote) {
+    if (!voterName || !selectedDeparture || !selectedReturn || !defenseNote) {
         alert("Please fill out all fields!");
         return;
     }
@@ -132,14 +280,16 @@ export default function FlightVoter() {
     try {
         await addDoc(collection(db, "flightVotes"), {
             name: voterName,
-            flightId: selectedFlight,
+            departureFlightId: selectedDeparture,
+            returnFlightId: selectedReturn,
             note: defenseNote,
             timestamp: new Date().toISOString()
         });
 
         // Clear form
         setVoterName("");
-        setSelectedFlight("");
+        setSelectedDeparture("");
+        setSelectedReturn("");
         setDefenseNote("");
     } catch (error) {
         console.error("Error adding vote: ", error);
@@ -160,37 +310,24 @@ export default function FlightVoter() {
     }
   };
 
-  // Calculate results if they should be shown
-  let resultsSummary = [];
-  let winningFlightId = null;
+  // Calculate results per leg if they should be shown
+  let departureResults = [];
+  let returnResults = [];
 
   if (showResults && votes.length > 0) {
-    const voteCounts = {};
-    votes.forEach(vote => {
-      voteCounts[vote.flightId] = (voteCounts[vote.flightId] || 0) + 1;
-    });
+    departureResults = departureFlights
+      .map(flight => ({ ...flight, votes: votes.filter(v => v.departureFlightId === flight.id) }))
+      .filter(f => f.votes.length > 0)
+      .sort((a, b) => b.votes.length - a.votes.length);
 
-    // Find winner
-    let maxVotes = 0;
-    for (const [flightId, count] of Object.entries(voteCounts)) {
-        if (count > maxVotes) {
-            maxVotes = count;
-            winningFlightId = flightId;
-        }
-    }
-
-    // Group votes by flight for display
-    resultsSummary = flights.map(flight => {
-        const flightVotes = votes.filter(v => v.flightId === flight.id);
-        return {
-            ...flight,
-            votes: flightVotes
-        };
-    }).filter(f => f.votes.length > 0);
-
-    // Sort so winner is first
-    resultsSummary.sort((a, b) => b.votes.length - a.votes.length);
+    returnResults = returnFlights
+      .map(flight => ({ ...flight, votes: votes.filter(v => v.returnFlightId === flight.id) }))
+      .filter(f => f.votes.length > 0)
+      .sort((a, b) => b.votes.length - a.votes.length);
   }
+
+  const selectedDepartureFlight = departureFlights.find(f => f.id === selectedDeparture);
+  const selectedReturnFlight = returnFlights.find(f => f.id === selectedReturn);
 
   if (loading) {
     return (
@@ -240,44 +377,37 @@ export default function FlightVoter() {
 
         <div className="grid md:grid-cols-2 gap-8">
 
-          <div className="space-y-4">
-            <h2 className="text-xl font-black text-[#8E5A71] mb-4 border-b-2 border-solid border-[#8E5A71] pb-2 uppercase">
-                The Options
-            </h2>
-            <div className="h-[600px] overflow-y-auto pr-2 space-y-4">
-                {flights.map((flight) => (
-                <div
-                    key={flight.id}
-                    className={`bg-transparent p-4 border-2 rounded-2xl transition-all cursor-pointer ${selectedFlight === flight.id ? 'border-[#8E5A71] bg-[#D4B5C1]' : 'border-[#8E5A71] hover:bg-[#D4B5C1]/50'}`}
-                    onClick={() => setSelectedFlight(flight.id)}
-                >
-                    <div className="flex justify-between items-start mb-2">
-                        <div>
-                            <span className="font-black text-xl text-[#5A3A4A]">{flight.airline}</span>
-                            <div className="text-sm font-bold text-[#8E5A71]">{flight.stops}</div>
-                        </div>
-                        <div className="text-right">
-                            <div className="text-2xl font-black text-[#8E5A71]">${flight.price}</div>
-                        </div>
-                    </div>
+          <div className="space-y-6">
+            <div>
+              <h2 className="text-xl font-black text-[#8E5A71] mb-4 border-b-2 border-solid border-[#8E5A71] pb-2 uppercase">
+                  Departing Flights
+              </h2>
+              <div className="h-[380px] overflow-y-auto pr-2 space-y-2">
+                  {departureFlights.map((flight) => (
+                    <FlightCard
+                      key={flight.id}
+                      flight={flight}
+                      selected={selectedDeparture === flight.id}
+                      onSelect={() => setSelectedDeparture(flight.id)}
+                    />
+                  ))}
+              </div>
+            </div>
 
-                    <div className="grid grid-cols-2 gap-2 text-sm my-3 border-t-2 border-b-2 border-solid border-[#8E5A71] py-2">
-                        <div>
-                            <span className="block text-[#8E5A71] text-xs font-bold uppercase tracking-wider">Depart</span>
-                            <span className="font-bold">{flight.departure}</span>
-                        </div>
-                        <div>
-                            <span className="block text-[#8E5A71] text-xs font-bold uppercase tracking-wider">Arrive</span>
-                            <span className="font-bold">{flight.arrival}</span>
-                        </div>
-                    </div>
-
-                    <div className="flex justify-between items-center text-xs font-bold text-[#8E5A71]">
-                        <span className="flex items-center gap-1">⏱ {flight.duration}</span>
-                        <span className="flex items-center gap-1">🌱 {flight.co2}</span>
-                    </div>
-                </div>
-                ))}
+            <div>
+              <h2 className="text-xl font-black text-[#8E5A71] mb-4 border-b-2 border-solid border-[#8E5A71] pb-2 uppercase">
+                  Returning Flights
+              </h2>
+              <div className="h-[380px] overflow-y-auto pr-2 space-y-2">
+                  {returnFlights.map((flight) => (
+                    <FlightCard
+                      key={flight.id}
+                      flight={flight}
+                      selected={selectedReturn === flight.id}
+                      onSelect={() => setSelectedReturn(flight.id)}
+                    />
+                  ))}
+              </div>
             </div>
           </div>
 
@@ -307,9 +437,16 @@ export default function FlightVoter() {
                             </div>
 
                             <div>
-                                <label className="block text-sm font-black text-[#8E5A71] mb-1 uppercase tracking-wider">Flight</label>
+                                <label className="block text-sm font-black text-[#8E5A71] mb-1 uppercase tracking-wider">Departing Flight</label>
                                 <div className="w-full px-4 py-2 border-2 border-[#8E5A71] rounded-xl bg-transparent font-bold">
-                                    {selectedFlight ? flights.find(f => f.id === selectedFlight)?.airline + " - $" + flights.find(f => f.id === selectedFlight)?.price : "Tap an option..."}
+                                    {selectedDepartureFlight ? `${selectedDepartureFlight.airline} - $${selectedDepartureFlight.price}` : "Tap an option above..."}
+                                </div>
+                            </div>
+
+                            <div>
+                                <label className="block text-sm font-black text-[#8E5A71] mb-1 uppercase tracking-wider">Returning Flight</label>
+                                <div className="w-full px-4 py-2 border-2 border-[#8E5A71] rounded-xl bg-transparent font-bold">
+                                    {selectedReturnFlight ? `${selectedReturnFlight.airline} - $${selectedReturnFlight.price}` : "Tap an option above..."}
                                 </div>
                             </div>
 
@@ -326,7 +463,7 @@ export default function FlightVoter() {
 
                             <button
                                 type="submit"
-                                disabled={!selectedFlight || !voterName || !defenseNote}
+                                disabled={!selectedDeparture || !selectedReturn || !voterName || !defenseNote}
                                 className="w-full bg-[#8E5A71] text-[#E5D4DA] rounded-xl font-black py-3 px-4 uppercase tracking-widest hover:bg-[#5A3A4A] transition-colors disabled:opacity-50 disabled:cursor-not-allowed border-2 border-[#8E5A71]"
                             >
                                 Submit Vote
@@ -359,28 +496,9 @@ export default function FlightVoter() {
                                 No one has voted yet!
                             </div>
                         ) : (
-                            <div className="space-y-6">
-                                {resultsSummary.map((result, index) => (
-                                    <div key={result.id} className={`p-4 border-2 rounded-2xl border-[#8E5A71] ${index === 0 ? 'bg-[#D4B5C1]' : 'bg-transparent'}`}>
-                                        <div className="flex justify-between items-center mb-3">
-                                            <div className="font-black text-lg text-[#5A3A4A]">
-                                                {index === 0 && "★ "} {result.airline} (${result.price})
-                                            </div>
-                                            <div className="border-2 border-[#8E5A71] rounded-full px-2 py-1 text-sm font-black text-[#8E5A71] bg-transparent">
-                                                {result.votes.length}
-                                            </div>
-                                        </div>
-
-                                        <div className="space-y-2 mt-3 border-t-2 border-solid border-[#8E5A71] pt-3">
-                                            {result.votes.map((v, i) => (
-                                                <div key={i} className="p-2 text-sm font-bold">
-                                                    <span className="text-[#8E5A71] uppercase tracking-wider block mb-1">{v.name}:</span>
-                                                    <span className="text-[#5A3A4A]">"{v.note}"</span>
-                                                </div>
-                                            ))}
-                                        </div>
-                                    </div>
-                                ))}
+                            <div className="space-y-8">
+                                <ResultsSection title="Departing Votes" results={departureResults} />
+                                <ResultsSection title="Returning Votes" results={returnResults} />
                             </div>
                         )}
 
