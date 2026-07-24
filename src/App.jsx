@@ -386,7 +386,7 @@ export default function FlightVoter() {
               <h2 className="text-xl font-black text-[#8E5A71] mb-4 border-b-2 border-solid border-[#8E5A71] pb-2 uppercase">
                   Departing Flights
               </h2>
-              <div className="h-[380px] overflow-y-auto pr-2 space-y-2">
+              <div className="h-[380px] overflow-y-scroll pr-3 space-y-2 flight-scroll">
                   {departureFlights.map((flight) => (
                     <FlightCard
                       key={flight.id}
@@ -402,7 +402,7 @@ export default function FlightVoter() {
               <h2 className="text-xl font-black text-[#8E5A71] mb-4 border-b-2 border-solid border-[#8E5A71] pb-2 uppercase">
                   Returning Flights
               </h2>
-              <div className="h-[380px] overflow-y-auto pr-2 space-y-2">
+              <div className="h-[380px] overflow-y-scroll pr-3 space-y-2 flight-scroll">
                   {returnFlights.map((flight) => (
                     <FlightCard
                       key={flight.id}
